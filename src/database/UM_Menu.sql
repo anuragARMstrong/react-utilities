@@ -7,12 +7,12 @@ GO
 
 CREATE TABLE UM_Menu (
 	Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    Label VARCHAR(50) NOT NULL,
-    [Description] VARCHAR(100) NULL DEFAULT NULL,
-    URL VARCHAR(100) NULL DEFAULT NULL,
-    ParentId INT NOT NULL DEFAULT 0,
-    [Sequence] INT NOT NULL UNIQUE,
-	IsActive TINYINT NOT NULL CHECK(isActive=0 OR isActive=1) DEFAULT 1 ,
+    Label VARCHAR(50) NOT NULL, -- Menu Name
+    [Description] VARCHAR(100) NULL DEFAULT NULL, -- Details of the page
+    URL VARCHAR(100) NULL DEFAULT NULL, -- URL of the page
+    ParentId INT NOT NULL DEFAULT 0, -- It will be the id of parent menu item. It's used for a submenu item. 
+    [Sequence] INT NOT NULL UNIQUE, -- At which sequence no this menuItem will show up in the UI
+	IsActive TINYINT NOT NULL CHECK(isActive=0 OR isActive=1) DEFAULT 1,
 	CreatedBy INT NOT NULL,
     CreatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     LastUpdatedBy INT DEFAULT NULL,
